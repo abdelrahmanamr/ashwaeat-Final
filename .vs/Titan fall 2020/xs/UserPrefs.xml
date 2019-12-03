@@ -1,0 +1,17 @@
+﻿<Properties StartupConfiguration="{403756F5-2793-C71C-8A1C-39423CF38C0F}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Easy Weapons/Scripts/Projectile.cs">
+    <Files>
+      <File FileName="Assets/Easy Weapons/Scripts/WeaponSystem.cs" Line="87" Column="1" />
+      <File FileName="Assets/Easy Weapons/Scripts/Weapon.cs" Line="151" Column="74" />
+      <File FileName="Assets/Easy Weapons/Scripts/Sample/FirstPersonCharacter.cs" Line="1" Column="1" />
+      <File FileName="Assets/Easy Weapons/Scripts/Projectile.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="720ae868-5d39-469a-9f15-909622642103" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
