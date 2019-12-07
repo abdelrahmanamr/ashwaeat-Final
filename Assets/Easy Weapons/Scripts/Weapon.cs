@@ -17,6 +17,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public enum WeaponType
 {
@@ -75,9 +76,9 @@ public class Weapon : MonoBehaviour
 	public bool shooterAIEnabled = false;				// Enable features compatible with Shooter AI by Gateway Games
 	public bool bloodyMessEnabled = false;				// Enable features compatible with Bloody Mess by Heavy Diesel Softworks
 	public int weaponType = 0;							// Bloody mess property
-
-	// Auto
-	public Auto auto = Auto.Full;						// How does this weapon fire - semi-auto or full-auto
+    
+    // Auto
+    public Auto auto = Auto.Full;						// How does this weapon fire - semi-auto or full-auto
 
 	// General
 	public bool playerWeapon = true;					// Whether or not this is a player's weapon as opposed to an AI's weapon
@@ -138,9 +139,10 @@ public class Weapon : MonoBehaviour
 	public float reloadTime = 2.0f;						// How much time it takes to reload the weapon
 	public bool showCurrentAmmo = true;					// Whether or not the current ammo should be displayed in the GUI
 	public bool reloadAutomatically = true;				// Whether or not the weapon should reload automatically when out of ammo
+    public Text Ammo;
 
-	// Accuracy
-	public float accuracy = 80.0f;						// How accurate this weapon is on a scale of 0 to 100
+    // Accuracy
+    public float accuracy = 80.0f;						// How accurate this weapon is on a scale of 0 to 100
 	private float currentAccuracy;						// Holds the current accuracy.  Used for varying accuracy based on speed, etc.
 	public float accuracyDropPerShot = 1.0f;			// How much the accuracy will decrease on each shot
 	public float accuracyRecoverRate = 0.1f;			// How quickly the accuracy recovers after each shot (value between 0 and 1)
@@ -212,10 +214,12 @@ public class Weapon : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		// Calculate the actual ROF to be used in the weapon systems.  The rateOfFire variable is
-		// designed to make it easier on the user - it represents the number of rounds to be fired
-		// per second.  Here, an actual ROF decimal value is calculated that can be used with timers.
-		if (rateOfFire != 0)
+        // Calculate the actual ROF to be used in the weapon systems.  The rateOfFire variable is
+        // designed to make it easier on the user - it represents the number of rounds to be fired
+        // per second.  Here, an actual ROF decimal value is calculated that can be used with timers.
+        Ammo = GameObject.Find("Ammo").GetComponent<Text>();
+
+        if (rateOfFire != 0)
 			actualROF = 1.0f / rateOfFire;
 		else
 			actualROF = 0.01f;
@@ -328,9 +332,10 @@ public class Weapon : MonoBehaviour
 			{
 				if (Input.GetButton("Fire1"))
 				{
-					if (!warmup)	// Normal firing when the user holds down the fire button
+                    
+                    if (!warmup)	// Normal firing when the user holds down the fire button
 					{
-						Fire();
+                        Fire();
 					}
 					else if (heat < maxWarmup)	// Otherwise just add to the warmup until the user lets go of the button
 					{
@@ -551,15 +556,15 @@ public class Weapon : MonoBehaviour
 			GUI.DrawTexture(bottomRect, crosshairTexture, ScaleMode.StretchToFill);
 		}
 
-		// Ammo Display
-		if (showCurrentAmmo)
-		{
-			if (type == WeaponType.Raycast || type == WeaponType.Projectile)
-				GUI.Label(new Rect(10, Screen.height - 30, 100, 20), "Ammo: " + currentAmmo);
-			else if (type == WeaponType.Beam)
-				GUI.Label(new Rect(10, Screen.height - 30, 100, 20), "Heat: " + (int)(beamHeat * 100) + "/" + (int)(maxBeamHeat * 100));
-		}
-	}
+        // Ammo Display
+        if (showCurrentAmmo && Ammo!=null)
+        {
+            if (type == WeaponType.Raycast || type == WeaponType.Projectile)
+                Ammo.text = "Ammo: " + currentAmmo + "/" + ammoCapacity;
+            else if (type == WeaponType.Beam)
+                Ammo.text = "Heat: " + (int)(beamHeat * 100) + "/" + (int)(maxBeamHeat * 100);
+        }
+    }
 
 
 	// Raycasting system

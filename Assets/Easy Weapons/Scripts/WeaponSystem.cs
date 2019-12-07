@@ -7,21 +7,24 @@
 
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class WeaponSystem : MonoBehaviour
 {
 	public GameObject[] weapons;				// The array that holds all the weapons that the player has
 	public int startingWeaponIndex = 0;			// The weapon index that the player will start with
 	private int weaponIndex;					// The current index of the active weapon
+    public Text WeaponName;
 
 
-	// Use this for initialization
-	void Start()
+    // Use this for initialization
+    void Start()
 	{
 		// Make sure the starting active weapon is the one selected by the user in startingWeaponIndex
 		weaponIndex = startingWeaponIndex;
 		SetActiveWeapon(weaponIndex);
-        Debug.Log(weapons.Length);
+        WeaponName.text = "Weapon: " + weapons[weaponIndex].name;
+        
 
     }
 	
@@ -29,7 +32,11 @@ public class WeaponSystem : MonoBehaviour
 	void Update()
 	{
         if (Input.GetKeyDown(KeyCode.Z))
-        	NextWeapon();
+        {
+            NextWeapon();
+            WeaponName.text = "Weapon: " + weapons[weaponIndex].name;
+            FindObjectOfType<PlayerHealth>().DecreaseHealth(-10);
+        }
         // Allow the user to instantly switch to any weapon
         //if (Input.GetButtonDown("Weapon 1"))
         //	SetActiveWeapon(0);

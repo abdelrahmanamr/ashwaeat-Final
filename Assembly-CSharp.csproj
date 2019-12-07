@@ -70,6 +70,7 @@
     <Compile Include="Assets\Easy Weapons\Scripts\Easy Camera Shake\Vibration.cs" />
     <Compile Include="Assets\Easy Weapons\Scripts\Explosion.cs" />
     <Compile Include="Assets\Easy Weapons\Scripts\Health.cs" />
+    <Compile Include="Assets\Easy Weapons\Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\Easy Weapons\Scripts\Projectile.cs" />
     <Compile Include="Assets\Easy Weapons\Scripts\Sample\FirstPersonCharacter.cs" />
     <Compile Include="Assets\Easy Weapons\Scripts\Sample\FirstPersonHeadBob.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Assets\Easy Weapons\Scripts\SlowMotion.cs" />
     <Compile Include="Assets\Easy Weapons\Scripts\Spawner.cs" />
     <Compile Include="Assets\Easy Weapons\Scripts\TimedObjectDestroyer.cs" />
+    <Compile Include="Assets\Easy Weapons\Scripts\WallRun.cs" />
     <Compile Include="Assets\Easy Weapons\Scripts\Weapon.cs" />
     <Compile Include="Assets\Easy Weapons\Scripts\WeaponSystem.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
@@ -109,6 +111,9 @@
     </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>/Users/abdelrahmanamr/Titan fall 2020/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>/Users/abdelrahmanamr/Titan fall 2020/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>/Users/abdelrahmanamr/Titan fall 2020/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
